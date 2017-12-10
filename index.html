@@ -55,45 +55,8 @@
     </head>
     <body>
         <div id = "questionarea"><button class = "btn" onclick = "checkthequiz(this);">Check</button><br></div>
+        <script src = "problems.js"></script>
         <script>
-            var problems = [
-                {
-                    sayings:"1+1",
-                    answer:1+1,
-                },
-                {
-                    sayings:"234+99",
-                    answer:234+99,
-                },
-                {
-                    sayings:"1234*20",
-                    answer:1234*20,
-                },
-                {
-                    sayings:"100÷5",
-                    answer:100/5,
-                },
-                {
-                    sayings:"John had 500 cookies. Bob has 200. John decides to give Bob 20 cookies. Bob decides to give John 30 cookies. How many cookies does John have now?",
-                    answer:(500-20)+30,
-                },
-                {
-                    sayings:"How many dots are there? <br>&#11044;&#11044;&#11044;&#11044;",
-                    answer:4,
-                },
-                {
-                    sayings:"What is |-5|?",
-                    answer:5,
-                },
-                {
-                    sayings:"What is &#8730;9?",
-                    answer:3,
-                },
-                {
-                    sayings:"9&times;20",
-                    answer:9*20,
-                },
-            ];
             var question = problems[Math.floor(Math.random()*(problems.length))];
             document.getElementById("questionarea").innerHTML += '<div class = "problemlist">'+question.sayings+'<br><br><bold>Your answer:<input id = "ans"></bold>'+'</div>';
             function checkthequiz(el){
