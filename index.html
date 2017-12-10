@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz generator</title>
+        <link href='https://fonts.googleapis.com/css?family=Amatic+SC:700' rel='stylesheet' type='text/css'>
+        <meta charset = "utf-8">
+        <style>
+            body{
+                font-family: 'Amatic SC', 'arial';
+                background:#a9a9a9;
+            }
+            #questionarea{
+                font-size:250%;
+                padding:3%;
+                width:90%;
+                height:85%;
+                background:white;
+                position:absolute;
+                box-shadow:4px 4px 2px grey;
+                overflow:auto;
+            }
+            #questionarea input{
+                height:8%;
+                position:absolute;
+                margin-top:2%;
+                border:none;
+                border-bottom:2px solid black;
+                font-size:30px;
+                padding:0px;
+            }
+            *:focus{
+                outline:none;
+            }
+            .btn{
+                position:absolute;
+                margin-top:-3.1%;
+                margin-left:-3.1%;
+                border:none;
+                padding:13px;
+                width:100%;
+                cursor:pointer;
+                background:#00ff00;
+            }
+            .btn:hover{
+                background:#00bc02;
+                color:black;
+            }
+            .problemlist{
+                margin-top:-4%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "questionarea"><button class = "btn" onclick = "checkthequiz(this);">Check</button><br></div>
+        <script>
+            var problems = [
+                {
+                    sayings:"1+1",
+                    answer:1+1,
+                },
+                {
+                    sayings:"234+99",
+                    answer:234+99,
+                },
+                {
+                    sayings:"1234*20",
+                    answer:1234*20,
+                },
+                {
+                    sayings:"100÷5",
+                    answer:100/5,
+                },
+                {
+                    sayings:"John had 500 cookies. Bob has 200. John decides to give Bob 20 cookies. Bob decides to give John 30 cookies. How many cookies does John have now?",
+                    answer:(500-20)+30,
+                },
+                {
+                    sayings:"How many dots are there? <br>&#11044;&#11044;&#11044;&#11044;",
+                    answer:4,
+                },
+                {
+                    sayings:"What is |-5|?",
+                    answer:5,
+                },
+                {
+                    sayings:"What is &#8730;9?",
+                    answer:3,
+                },
+                {
+                    sayings:"9&times;20",
+                    answer:9*20,
+                },
+            ];
+            var question = problems[Math.floor(Math.random()*(problems.length))];
+            document.getElementById("questionarea").innerHTML += '<div class = "problemlist">'+question.sayings+'<br><br><bold>Your answer:<input id = "ans"></bold>'+'</div>';
+            function checkthequiz(el){
+                var ans = document.getElementById("ans").value;
+                if(ans.toString() === question.answer.toString()){
+                    alert("Correct!");
+                    el.innerHTML = "Congrats! Reload the page to try another problem.";
+                }else if(ans === ""){
+                    alert("Please give an answer");
+                }else if(isNaN(ans)){
+                    alert("Please give a number");
+                }else{
+                    alert("Incorrect, try again");
+                }
+            }
+        </script>
+    </body>
+</html>
